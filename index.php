@@ -7,8 +7,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['criar'])) {
 
         $titulo = $_POST['titulo'];
+        $tarefas = lerTarefas($arquivo);
+        $existe = false;
 
-        if ($titulo != '') {
+        foreach ($tarefas as $tarefa) {
+            if ($titulo == $tarefa['titulo']) {
+                $existe = true;
+            }
+
+        }
+
+        if ($titulo != '' && !$existe) {
             criarTarefas($arquivo, $titulo);
         }
     }
