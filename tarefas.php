@@ -1,7 +1,7 @@
 <?php
 date_default_timezone_set('America/Sao_Paulo');
 
-$arquivo = __DIR__ . 'script/tarefas.json';
+$arquivo = __DIR__ . 'script';
 
 function lerTarefas($arquivo){
 
