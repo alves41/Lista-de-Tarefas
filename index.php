@@ -7,8 +7,9 @@ require_once 'tarefas.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="estilo.css">
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="estilo/estilo.css">
+    <script src="script/tarefas.js"></script>
+    <script src="script/script.js"></script>
     <title>Lista de Tarefas</title>
 </head>
 <body>
