@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 *{
@@ -99,12 +98,13 @@ button{
     cursor: pointer;
     transition: 0.2s ease;
 }
+
 .salvar{
-background-color: #5c805c;
+    background-color: #5c805c;
 }
 
 .salvar:hover{
-background-color: #329332;
+    background-color: #329332;
 }
 
 button:hover{
@@ -114,18 +114,16 @@ button:hover{
 
 /* LISTA */
 .lista-tarefas{
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
     gap: 16px;
+    align-items: start;
 }
-
 
 /* CARD */
 .card{
-    width: calc(20% - 1%);
+    width: 100%;
     margin-top: 10px;
-    min-width: 220px;
     position: relative;
     background: var(--card);
     border: 1px solid var(--card-border);
@@ -176,8 +174,10 @@ button:hover{
 
 .data{
     color: var(--muted);
-    font-size: 0.72rem;
-        margin-left: 55%;
+    font-size: 11px;
+    text-align: right;
+    margin-left: 0;
+    
 }
 
 /* STATUS */
@@ -216,7 +216,6 @@ button:hover{
 /* RADIO */
 .linha{
     display: flex;
-
     gap: 8px;
 }
 
@@ -278,28 +277,100 @@ button:hover{
 @media(max-width: 768px){
 
     body{
-        padding: 22px 14px;
+        padding: 16px 10px;
+    }
+
+    .container{
+        width: 100%;
+    }
+
+    h1{
+        font-size: 2.2rem;
+        margin-bottom: 20px;
     }
 
     .form-criar{
-        flex-direction: column;
-        align-items: stretch;
+        max-width: 80%;
+        flex-direction: row;
+        margin-bottom: 5px;
+    }
+
+    .CriarTarefa{
+        width: 100%;
+        min-width: 0;
     }
 
     .lista-tarefas{
-        flex-direction: column;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
     }
 
     .card{
-        width: 100%;
+        margin-top: 0;
     }
 
-    .linha,
+    .linha{
+        display: flex;
+        gap: 4px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .status-radio{
+        font-size: 10px;
+    }
+
+    .status-radio input{
+        transform: scale(0.85);
+    }
+
     .botoes{
-        flex-direction: column;
+        flex-direction: row;
+        gap: 20px;
     }
 
-    button{
+    .botoes button{
         width: 100%;
     }
+
+    .data{
+        text-align: left;
+        margin-left: 0;
+    }
+
+}
+
+/* CELULAR PEQUENO */
+@media(max-width: 480px){
+
+    .lista-tarefas{
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+    }
+
+    .card{
+        padding: 8px;
+    }
+
+    .card h3{
+        font-size: 0.72rem;
+    }
+
+    .status{
+        font-size: 0.52rem;
+    }
+
+    .data{
+        font-size: 8px;
+    }
+
+    .status-radio{
+        font-size: 8px;
+    }
+
+    .botoes button{
+        font-size: 0.62rem;
+        padding: 8px;
+    }
+
 }
