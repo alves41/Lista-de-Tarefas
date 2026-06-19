@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --bg: #e4e6ff;
+    --card: rgba(15, 23, 42, 0.72);
+    --card-border: rgba(255,255,255,0.06);
+    --input: rgba(30, 41, 59, 0.9);
+    --primary: #2969d1;
+    --primary-hover: #2563eb;
+    --text: #76bef8;
+    --muted: #94a3b8;
+    --shadow: 0 12px 30px rgba(0,0,0,0.22);
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    font-family: 'Inter', sans-serif;
+
+    background:
+        radial-gradient(circle at top left, rgba(59,130,246,0.15), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(168,85,247,0.10), transparent 30%),
+        var(--bg);
+}
+
+form{
+    width: 100%;
+    max-width: 420px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+
+    background: var(--card);
+
+    border: 1px solid var(--card-border);
+
+    border-radius: 24px;
+
+    padding: 35px;
+
+    backdrop-filter: blur(18px);
+
+    box-shadow: var(--shadow);
+}
+
+h1{
+    text-align: center;
+    color: #dbeafe;
+    margin-bottom: 10px;
+    font-size: 2rem;
+}
+
+input{
+    width: 100%;
+
+    border: none;
+    outline: none;
+
+    padding: 14px;
+
+    border-radius: 14px;
+
+    background: var(--input);
+
+    color: var(--text);
+
+    font-size: 0.92rem;
+}
+
+input::placeholder{
+    color: var(--muted);
+}
+
+input:focus{
+    box-shadow: 0 0 0 4px rgba(59,130,246,0.15);
+}
+
+button{
+    border: none;
+    outline: none;
+
+    padding: 14px;
+
+    border-radius: 14px;
+
+    background: var(--primary);
+
+    color: white;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+button:hover{
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+a{
+    text-align: center;
+    text-decoration: none;
+    color: var(--text);
+    font-size: 0.9rem;
+}
+
+a:hover{
+    text-decoration: underline;
+}

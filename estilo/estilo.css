@@ -243,6 +243,18 @@ button:hover{
 }
 
 /* BOTÕES */
+.sair {
+    background: rgba(53, 76, 252, 0.436);
+    margin-left: 87%;
+    padding: 7px;
+    width: 7%;
+}
+
+.sair:hover {
+    background: rgba(249, 1, 1, 0.6);
+}
+
+
 .botoes{
     display: flex;
     gap: 5px;
