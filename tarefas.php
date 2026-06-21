@@ -19,6 +19,7 @@ function lerTarefas($arquivo){
     return $resultado;
 }
 
+
 function salvarTarefa($arquivo, $tarefas){
 
     $json = json_encode($tarefas, JSON_PRETTY_PRINT);
@@ -31,6 +32,7 @@ function criarTarefas($arquivo, $titulo, $status){
 
     $tarefas[] = [
         'id' => uniqid(),
+        'usuario' => $_SESSION['usuario_logado'],
         'titulo' => $titulo,
         'status' => $status,
         'criado_em' => date('d/m/Y H:i')
@@ -76,6 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (isset($_POST['criar'])) {
 
+        $usuarioLogado = $_SESSION['usuario_logado'];
         $titulo = trim($_POST['titulo']);
         $status = 'PENDENTE';
         $tarefas = lerTarefas($arquivo);
@@ -110,5 +113,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 $tarefas = lerTarefas($arquivo);
+$tarefasFiltradas = [];
 
+foreach($tarefas as $tarefinhas){
+
+ if($tarefinhas['usuario'] === $_SESSION['usuario_logado']){
+
+ $tarefasFiltradas [] = $tarefinhas;
+
+ }
+
+}
 ?>

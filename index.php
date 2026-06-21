@@ -1,6 +1,8 @@
 <?php
 require_once 'auth.php';
 require_once 'tarefas.php';
+require_once 'func.php';
+$usuarios = lerUsuarios($arquivoUsuarios);
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -15,12 +17,24 @@ require_once 'tarefas.php';
 </head>
 
 <body>
-
     <form method="POST">
     <button class="sair" type="submit" name="sair">
         <i class="fa-solid fa-person-walking-arrow-right"></i>
         Encerrar
     </button>
+    <?php 
+    /*foreach ($usuarios as $u){
+
+       if($u['usuario'] === $usuarios ){
+
+            $_SESSION['usuario_logado'] = $u['id'];
+
+            echo $_SESSION['usuario_logado'];
+
+            }
+    }
+    */
+    ?>
 </form>
 
     <div class="container">
@@ -30,27 +44,27 @@ require_once 'tarefas.php';
             <button type="submit" name="criar">Adicionar</button>
         </form>
         <div class="lista-tarefas">
-            <?php foreach ($tarefas as $tarefa) { ?>
-                <div class="card <?php echo $tarefa['status'] == 'CONCLUIDO' ? 'CONCLUIDO' : ''; ?>">
-                    <h3><?php echo $tarefa['titulo']; ?></h3>
+            <?php foreach ($tarefasFiltradas as $tarefas) { ?>
+                <div class="card <?php echo  $tarefas['status'] == 'CONCLUIDO' ? 'CONCLUIDO' : ''; ?>">
+                    <h3><?php echo $tarefas['titulo']; ?></h3>
                     <div class="info">
-                        <p class="status"><?php echo $tarefa['status']; ?></p>
-                        <small class="data"><?php echo $tarefa['criado_em']; ?></small>
+                        <p class="status"><?php echo $tarefas['status']; ?></p>
+                        <small class="data"><?php echo $tarefas['criado_em']; ?></small>
                     </div>
                     <div class="acoes">
                         <form method="POST" class="editar-form">
-                            <input type="hidden" name="id" value="<?php echo $tarefa['id']; ?>">
+                            <input type="hidden" name="id" value="<?php echo $tarefas['id']; ?>">
                             <input type="text" name="novotitulo" placeholder="Novo título" class="AtualizarTarefa">
                             <div class="linha">
                                 <label class="status-radio">
                                     <input type="radio" name="status" value="PENDENTE" 
-                                    <?= $tarefa['status'] == 'PENDENTE' ? 'checked' : '' ?>
+                                    <?= $tarefas['status'] == 'PENDENTE' ? 'hecked' : '' ?>
                                     >
                                     <span>Pendente</span>
                                 </label>
                                 <label class="status-radio">
                                     <input type="radio" name="status" value="CONCLUIDO"
-                                    <?= $tarefa['status'] == 'CONCLUIDO' ? 'checked' : '' ?>
+                                    <?= $tarefas['status'] == 'CONCLUIDO' ? 'checked' : '' ?>
                                     >
                                     <span>Concluído</span>
                                 </label>
