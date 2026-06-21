@@ -22,19 +22,6 @@ $usuarios = lerUsuarios($arquivoUsuarios);
         <i class="fa-solid fa-person-walking-arrow-right"></i>
         Encerrar
     </button>
-    <?php 
-    /*foreach ($usuarios as $u){
-
-       if($u['usuario'] === $usuarios ){
-
-            $_SESSION['usuario_logado'] = $u['id'];
-
-            echo $_SESSION['usuario_logado'];
-
-            }
-    }
-    */
-    ?>
 </form>
 
     <div class="container">
