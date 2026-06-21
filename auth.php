@@ -2,8 +2,8 @@
 session_start();
 
 if (!isset($_SESSION['usuario_logado'])){
-header('Location: login.php');
-exit;
+    header('Location: login.php');
+    exit;
 }
 
 if($_SERVER['REQUEST_METHOD'] === 'POST'){

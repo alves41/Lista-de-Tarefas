@@ -2,7 +2,6 @@
 require_once 'auth.php';
 require_once 'tarefas.php';
 require_once 'func.php';
-$usuarios = lerUsuarios($arquivoUsuarios);
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -22,6 +21,20 @@ $usuarios = lerUsuarios($arquivoUsuarios);
         <i class="fa-solid fa-person-walking-arrow-right"></i>
         Encerrar
     </button>
+    <div class="nickname">
+        <?php 
+            $ListaUsuarios = lerUsuarios($arquivoUsuarios);
+            foreach ($ListaUsuarios as $usuarioAtual){
+                if($_SESSION['usuario_logado'] === $usuarioAtual['id']){
+
+                echo $usuarioAtual['usuario'];
+                
+                }
+
+            }
+            
+            ?>
+    </div>
 </form>
 
     <div class="container">
@@ -45,7 +58,7 @@ $usuarios = lerUsuarios($arquivoUsuarios);
                             <div class="linha">
                                 <label class="status-radio">
                                     <input type="radio" name="status" value="PENDENTE" 
-                                    <?= $tarefas['status'] == 'PENDENTE' ? 'hecked' : '' ?>
+                                    <?= $tarefas['status'] == 'PENDENTE' ? 'checked' : '' ?>
                                     >
                                     <span>Pendente</span>
                                 </label>
