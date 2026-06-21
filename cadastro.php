@@ -61,7 +61,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 <body>
      <form method="POST">
          <h1>Criar Conta</h1> 
-         <input type="text" name="usuario" placeholder="Como quer ser chamado?" required>
+         <input type="text" name="usuario" placeholder="Como quer ser chamado?" maxlength="10" required>
          <input type="password" name="senha" placeholder="Sua senha" required>
          <button type="submit"> Cadastrar </button> 
          <a href="login.php"> Já tenho conta! </a>
