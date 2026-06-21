@@ -250,6 +250,13 @@ button:hover{
     width: 7%;
 }
 
+.nickname {
+    text-align: center;
+    margin-left: 87%;
+    padding: 7px;
+    width: 7%;
+}
+
 .sair:hover {
     background: rgba(249, 1, 1, 0.6);
 }
