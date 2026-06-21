@@ -1,5 +1,6 @@
 <?php
 session_start();
+echo "DEPLOY OK " . time();
 require_once 'func.php';
 $arquivoUsuarios = __DIR__ . '/usuarios.json';
 
