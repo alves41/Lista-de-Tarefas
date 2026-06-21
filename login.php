@@ -53,8 +53,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
             <p class="subtitle">Acesse sua conta para continuar</p>
 
             <form method="POST">
-                <input type="text" name="usuario" placeholder="Seu apelido" required>
-                <input type="password" name="senha" placeholder="Sua senha" required>
+                <input type="text" name="usuario" placeholder="Seu apelido" maxlength="8" required>
+                <input type="password" name="senha" placeholder="Sua senha" maxlength="8" required>
                 <button type="submit">Entrar</button>
             </form>
 
