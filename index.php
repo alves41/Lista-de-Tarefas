@@ -1,5 +1,5 @@
 <?php
-require_once 'auth.php';
+require_once 'session/auth.php';
 require_once 'tarefas.php';
 require_once 'func.php';
 ?>
@@ -11,7 +11,6 @@ require_once 'func.php';
     <link rel="stylesheet" href="estilo/estilo.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <script src="script/tarefas.js"></script>
-    <script src="script/script.js"></script>
     <title>Lista de Tarefas</title>
 </head>
 
@@ -33,7 +32,7 @@ require_once 'func.php';
 
             }
             
-            ?>
+        ?>
     </div>
 </form>
 

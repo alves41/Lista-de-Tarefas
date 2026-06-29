@@ -1,21 +1,31 @@
-  const formsDelete = document.querySelectorAll('form');
+const form = document.querySelector("form");
 
-        formsDelete.forEach(form => {
+form.addEventListener("submit", function(event) {
+    event.preventDefault();
 
-            form.addEventListener('submit', (event) => {
+    const user = document.getElementById("user").value;
+    const password = document.getElementById("password").value;
+    const erroruser = document.getElementById("errouser");
 
-                const botao = event.submitter;
+    if (user === "" && password === "") {
+        erroruser.textContent = "Todos os campos são obrigatórios";
+        return;
+    } else {
+        erroruser.textContent = "";
+    }
+    if (user === "") {
+        erroruser.textContent = "Digite como quer ser chamado!";
+        return;
+    }else {
+        erroruser.textContent = "";
+    }
+    if (password === "") {
+        erroruser.textContent = "A senha é obrigatório";
+        return;
+    }else {
+        erroruser.textContent = "";
+    }
+    
+   form.submit();
 
-                if (botao && botao.name === 'deletar') {
-
-                    const confirmar = confirm('Deseja deletar essa tarefa?');
-
-                    if (!confirmar) {
-                        event.preventDefault();
-                    }
-
-                }
-
-            });
-
-        });
+} );

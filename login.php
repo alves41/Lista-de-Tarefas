@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once 'func.php';
-$arquivoUsuarios = __DIR__ . '/usuarios.json';
+$arquivoUsuarios = __DIR__ . '/script//usuarios.json';
 
 $usuarios = lerUsuarios($arquivoUsuarios);
 $erro = '';

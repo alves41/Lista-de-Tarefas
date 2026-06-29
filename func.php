@@ -74,7 +74,7 @@ function atualizarTarefa($arquivo, $id, $novotitulo, $status){
     salvarTarefa($arquivo, $tarefas);
 }
 
-$arquivoUsuarios = __DIR__ . '/usuarios.json';
+$arquivoUsuarios = __DIR__ . '/script/usuarios.json';
 
 function lerUsuarios($arquivo){
 

@@ -53,6 +53,14 @@ form{
     box-shadow: var(--shadow);
 }
 
+.erro {
+    text-align: center;
+    color: red;
+    font-size: 12px;
+    display: block;
+    margin-top: 2px;
+}
+
 h1{
     text-align: center;
     color: #dbeafe;

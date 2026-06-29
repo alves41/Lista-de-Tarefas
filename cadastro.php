@@ -3,7 +3,7 @@
 session_start();
 require_once 'func.php';
 
-$arquivoUsuarios = __DIR__ . '/usuarios.json';
+$arquivoUsuarios = __DIR__ . '/script//usuarios.json';
 $usuarios = lerUsuarios($arquivoUsuarios);
 $erro = '';
 
@@ -16,38 +16,30 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
         $erro = 'Preencha todos os campos';
 
-    }else{
+    } else{
+            $usuarioExiste = false;
+            
+            foreach($usuarios as $u){
 
-        $usuarioExiste = false;
+                if($u['usuario'] === $usuario){                   
+                    $usuarioExiste = true;
+                    $erro = 'Usuário já existe';
+                    break;
+                }else{
+                    $novoUsuario = [
+                    'id' => time(),
+                    'usuario' => $usuario,
+                    'senha' => password_hash($senha, PASSWORD_DEFAULT)
+                    ];
 
-        foreach($usuarios as $u){
+                    $usuarios[] = $novoUsuario;
+                    salvarUsuarios($arquivoUsuarios, $usuarios);
 
-            if($u['usuario'] === $usuario){
-                $usuarioExiste = true;
-                break;
+                    header('Location: login.php');
+                    exit;
             }
         }
-
-        if($usuarioExiste){
-
-            $erro = 'Usuário já existe';
-
-        }else{
-
-            $novoUsuario = [
-                'id' => time(),
-                'usuario' => $usuario,
-                'senha' => password_hash($senha, PASSWORD_DEFAULT)
-            ];
-
-            $usuarios[] = $novoUsuario;
-
-            salvarUsuarios($arquivoUsuarios, $usuarios);
-
-            header('Location: login.php');
-            exit;
-        }
-    }
+     }
 }
 ?>
 <!DOCTYPE html>
@@ -61,10 +53,13 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 <body>
      <form method="POST">
          <h1>Criar Conta</h1> 
-         <input type="text" name="usuario" placeholder="Como quer ser chamado?" maxlength="8" required>
-         <input type="password" name="senha" placeholder="Sua senha" maxlength="8" required>
-         <button type="submit"> Cadastrar </button> 
+         <input type="text" id="user" name="usuario" placeholder="Como quer ser chamado?" maxlength="8">
+         <input type="password" id="password" name="senha" placeholder="Sua senha" maxlength="8">
+         <button type="submit"> Cadastrar </button>
+         <div class="erro"><?php echo $erro;?></div> 
+         <small id="errouser" class="erro"></small>
          <a href="login.php"> Já tenho conta! </a>
     </form> 
+    <script src="script/script.js"></script>
 </body>
 </html>
